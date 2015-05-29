@@ -402,15 +402,16 @@ public class SCLAlertView: UIViewController {
         }
 
         // Animate in the alert view
-        self.baseView.frame.origin.y = -400
+        self.baseView.center.y = rv.center.y - 15
         UIView.animateWithDuration(0.2, animations: {
-            self.baseView.center.y = rv.center.y + 15
+          self.baseView.center.y = rv.center.y + 15
             self.view.alpha = 1
             }, completion: { finished in
                 UIView.animateWithDuration(0.2, animations: {
                     self.baseView.center = rv.center
                 })
         })
+
         // Chainable objects
         return SCLAlertViewResponder(alertview: self)
     }
